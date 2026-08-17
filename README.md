@@ -47,21 +47,21 @@ File: IFRS_16_Model_-Lease_Portfolio_11000.xlsx Scale: 11,000 leases · 6 sheets
                  ┌────────────────────────┼────────────────────────┐
                  ▼                                                  ▼
    ┌───────────────────────────┐                     ┌───────────────────────────┐
-   │      Summary Dashboard     │                     │      Charts Dashboard      │
-   │  tabular KPI totals and    │                     │  visual layer — first tab  │
-   │  breakdowns (original)     │                     │──────────────────────────────│
-   └───────────────────────────┘                     │  • KPI cards × 3 books      │
-                                                       │  • Bar / donut / heat-map   │
-                                                       │    charts × 3 books         │
-                                                       │  • Portfolio Demographics   │
-                                                       │    section                  │
-                                                       └───────────────────────────┘
+   │      Summary Dashboard    │                     │      Charts Dashboard     │
+   │  tabular KPI totals and   │                     │  visual layer — first tab │
+   │  breakdowns (original)    │                     │───────────────────────────│
+   └───────────────────────────┘                     │  • KPI cards × 3 books    │
+                                                     │  • Bar / donut / heat-map │
+                                                     │    charts × 3 books       │
+                                                     │  • Portfolio Demographics │
+                                                     │    section                │
+                                                     └───────────────────────────┘
 
   SUPPORTING TABS
   ┌────────────────┐   ┌────────────────┐
-  │  Assumptions     │   │  Methodology    │
-  │  exemption        │   │  modelling notes │
-  │  thresholds        │   │                 │
+  │  Assumptions   │   │ Methodology    │
+  │  exemption     │   │modelling notes │
+  │  thresholds    │   │                │
   └────────────────┘   └────────────────┘
 
 Data flow, in one line: Raw lease rows (2 sheets) → Chart Data (aggregation engine) → Summary Dashboard + Charts Dashboard
