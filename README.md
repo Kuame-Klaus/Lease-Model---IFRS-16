@@ -5,64 +5,9 @@ A single-workbook Excel model that computes IFRS 16 lease accounting (liability,
 File: IFRS_16_Model_-Lease_Portfolio_11000.xlsx Scale: 11,000 leases · 6 sheets · ~135,000 formulas
 
 # Architecture
-┌───────────────────────────────────────────────────────────────────────┐
-│                    IFRS 16 LEASE PORTFOLIO MODEL                      │
-│                     11,000 leases across 2 books                      │
-└───────────────────────────────────────────────────────────────────────┘
+<img width="757" height="1005" alt="Screenshot 2026-08-17 at 10 09 00 PM" src="https://github.com/user-attachments/assets/80c0ec37-733c-4c04-b5b0-68d827c3ac3a" />
+<img width="757" height="149" alt="Screenshot 2026-08-17 at 10 09 24 PM" src="https://github.com/user-attachments/assets/865dc28a-76e7-4265-9fd6-86cde1cddf54" />
 
-  RAW LEASE DATA  (source of truth — one row per lease)
-  ┌───────────────────────────┐      ┌────────────────────────────────┐
-  │ Lease Portfolio (Arrears) │      │ LP (Advance Pay & Ownership)    │
-  │ 10,000 leases · cols A–X  │      │  1,000 leases · cols A–Y        │
-  │────────────────────────────│      │──────────────────────────────────│
-  │ Country · Asset Class      │      │ Country · Asset Class            │
-  │ Commencement Date · Term   │      │ Commencement Date · Term         │
-  │ IBR · Underlying Value     │      │ IBR · Payment Timing             │
-  │ Exemption Applies?         │      │ Ownership Transfer?              │
-  │ Lease Liability · ROU      │      │ Lease Liability · ROU            │
-  │ Interest · Depreciation    │      │ Interest · Depreciation          │
-  │ P&L Charge · Timing Effect │      │ P&L Charge · Timing Effect       │
-  └──────────────┬─────────────┘      └────────────────┬─────────────---┘
-                 │                                       │
-                 └───────────────────┬───────────────────┘
-                                      │  SUMIF / COUNTIF / SUMPRODUCT
-                                      ▼
-                     ┌────────────────────────────────────┐
-                     │             Chart Data              │
-                     │   calculation engine — formulas     │
-                     │   only, no hardcoded values         │
-                     │──────────────────────────────────────│
-                     │  • By Asset Class   (Arrears / Adv / │
-                     │    Consolidated)                     │
-                     │  • By Country       (same 3 cuts)    │
-                     │  • Lease Expiry Profile (2026–2046+) │
-                     │  • IBR Distribution                  │
-                     │  • On-Balance-Sheet vs Exempted      │
-                     │  • Country × Asset Class heat-map    │
-                     │  • Demographics: term bands, vintage,│
-                     │    asset-value bands, book mix,      │
-                     │    payment timing, ownership xfer    │
-                     └───────────────────┬────────────────--┘
-                                          │
-                 ┌────────────────────────┼────────────────────────┐
-                 ▼                                                  ▼
-   ┌───────────────────────────┐                     ┌───────────────────────────┐
-   │      Summary Dashboard    │                     │      Charts Dashboard     │
-   │  tabular KPI totals and   │                     │  visual layer — first tab │
-   │  breakdowns (original)    │                     │───────────────────────────│
-   └───────────────────────────┘                     │  • KPI cards × 3 books    │
-                                                     │  • Bar / donut / heat-map │
-                                                     │    charts × 3 books       │
-                                                     │  • Portfolio Demographics │
-                                                     │    section                │
-                                                     └───────────────────────────┘
-
-  SUPPORTING TABS
-  ┌────────────────┐   ┌────────────────┐
-  │  Assumptions   │   │ Methodology    │
-  │  exemption     │   │modelling notes │
-  │  thresholds    │   │                │
-  └────────────────┘   └────────────────┘
 
 Data flow, in one line: Raw lease rows (2 sheets) → Chart Data (aggregation engine) → Summary Dashboard + Charts Dashboard
 
@@ -85,9 +30,9 @@ Lease liability (initial, arrears-pay):
 
 Years elapsed (drives the current-period figures):
 
-= DATEDIF(Commencement Date, TODAY(), "y")
+= DATEDIF(Commencement Date, "Assumption yearend", "y")
 
-⚠️ This makes the model date-sensitive — see Known considerations below.
+
 
 Aggregation pattern used throughout Chart Data:
 
