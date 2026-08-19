@@ -4,10 +4,6 @@ A single-workbook Excel model that computes IFRS 16 lease accounting (liability,
 
 File: IFRS_16_Model_-Lease_Portfolio_11000.xlsx Scale: 11,000 leases · 6 sheets · ~135,000 formulas
 
-# Architecture
-<img width="757" height="1005" alt="Screenshot 2026-08-17 at 10 09 00 PM" src="https://github.com/user-attachments/assets/80c0ec37-733c-4c04-b5b0-68d827c3ac3a" />
-<img width="757" height="149" alt="Screenshot 2026-08-17 at 10 09 24 PM" src="https://github.com/user-attachments/assets/865dc28a-76e7-4265-9fd6-86cde1cddf54" />
-
 
 Data flow, in one line: Raw lease rows (2 sheets) → Chart Data (aggregation engine) → Summary Dashboard + Charts Dashboard
 
@@ -69,3 +65,8 @@ Chart Data is a calculation layer, not an input sheet. Don't edit it directly �
 <img width="1900" height="998" alt="Screenshot 2026-08-17 at 9 50 27 PM" src="https://github.com/user-attachments/assets/b306aabb-f72b-4b16-a594-14c60a273fd8" />
 <img width="1900" height="998" alt="Screenshot 2026-08-17 at 9 50 37 PM" src="https://github.com/user-attachments/assets/dc06c80e-ec10-411f-8715-6bd2e0f544a6" />
 <img width="1900" height="998" alt="Screenshot 2026-08-17 at 9 50 57 PM" src="https://github.com/user-attachments/assets/b62980e0-40c7-4851-a33c-f062a3398a7c" />
+
+
+# Architecture
+<img width="757" height="1005" alt="Screenshot 2026-08-17 at 10 09 00 PM" src="https://github.com/user-attachments/assets/80c0ec37-733c-4c04-b5b0-68d827c3ac3a" />
+<img width="757" height="149" alt="Screenshot 2026-08-17 at 10 09 24 PM" src="https://github.com/user-attachments/assets/865dc28a-76e7-4265-9fd6-86cde1cddf54" />
